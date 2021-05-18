@@ -24,8 +24,7 @@ class LinkedList:
                 node.next = Node(data=elem)
                 node = node.next
 
-
-    def __repr__(self):
+    def __repr__(self): # Used to represent the exact string representation of the object
         node = self.head # First node in the LinkedList
         nodes = []
         while node is not None: # None indicates that the last node in the list has been reached.
@@ -33,6 +32,12 @@ class LinkedList:
             node = node.next
         nodes.append('None')
         return " -> ".join(nodes)
+
+    def __iter__(self): # Iterates over and prints each node in the list. Without this, the "for node in llist_with_data" line will not run.
+        node = self.head
+        while node is not None:
+            yield node # Yield is similar to return
+            node = node.next 
 
 class Node:
     def __init__(self, data):
@@ -54,3 +59,6 @@ print(llist.__repr__())
 
 llist_with_data = LinkedList(['a','b','c','d','e'])
 print(llist_with_data.__repr__())
+
+for node in llist_with_data:
+    print(node)
