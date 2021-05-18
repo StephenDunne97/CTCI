@@ -47,10 +47,19 @@ class LinkedList:
         if self.head is None:
             self.head = node
             return
-        for current_node in self:
-            print(current_node.next)
-            pass
-        current_node.next = node
+        for current_node in self: # Will run until the for loop raises a "StopIteration" exception
+            pass 
+        current_node.next = node # Set the next node of the last node to the new last node
+
+    def add_after(self, target_node_data, new_node):
+        if self.head is None:
+            raise Exception("List is empty")
+
+        for node in self:
+            if node.data == target_node_data:
+                new_node.next = node.next
+                node.next = new_node
+                return
 
 class Node:
     def __init__(self, data):
@@ -75,6 +84,7 @@ print(llist_with_data.__repr__())
 
 llist_with_data.add_first(Node('X'))
 llist_with_data.add_last(Node('Y'))
+llist_with_data.add_after('c', Node('Z'))
 
 for node in llist_with_data:
     print(node)
