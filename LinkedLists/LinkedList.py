@@ -15,9 +15,16 @@ print(LinkedList)
 """
 # Implementing your own LinkedList from scratch
 class LinkedList: 
-    def __init__(self):
+    def __init__(self, nodes = None):
         self.head = None # Marks the start of the LinkedList
-    
+        if nodes is not None: # If the LinkedList is initiated with data for each node
+            node = Node(data=nodes.pop(0)) # Get first entered node
+            self.head = node # Set first node to head
+            for elem in nodes:
+                node.next = Node(data=elem)
+                node = node.next
+
+
     def __repr__(self):
         node = self.head # First node in the LinkedList
         nodes = []
@@ -44,3 +51,6 @@ node3 = Node("c")
 node1.next = node2
 node2.next = node3
 print(llist.__repr__())
+
+llist_with_data = LinkedList(['a','b','c','d','e'])
+print(llist_with_data.__repr__())
