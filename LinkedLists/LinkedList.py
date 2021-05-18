@@ -1,4 +1,3 @@
-# LinkedList implemented taken from: https://realpython.com/linked-lists-python/
 # Practical Implementations of LinkedLists: queues/stacks/graphs.
 from collections import deque # Deque (Deck) = Object from the collections module
 
