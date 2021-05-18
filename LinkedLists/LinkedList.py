@@ -39,6 +39,10 @@ class LinkedList:
             yield node # Yield is similar to return
             node = node.next 
 
+    def add_first(self, node):
+        node.next = self.head # Setting the previous head to the next node in the list 
+        self.head = node # Setting the head to the new node
+
 class Node:
     def __init__(self, data):
         self.data = data # The data stored in the nde 
@@ -59,6 +63,8 @@ print(llist.__repr__())
 
 llist_with_data = LinkedList(['a','b','c','d','e'])
 print(llist_with_data.__repr__())
+
+llist_with_data.add_first(Node('X'))
 
 for node in llist_with_data:
     print(node)
