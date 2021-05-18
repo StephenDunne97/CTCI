@@ -43,6 +43,15 @@ class LinkedList:
         node.next = self.head # Setting the previous head to the next node in the list 
         self.head = node # Setting the head to the new node
 
+    def add_last(self, node):
+        if self.head is None:
+            self.head = node
+            return
+        for current_node in self:
+            print(current_node.next)
+            pass
+        current_node.next = node
+
 class Node:
     def __init__(self, data):
         self.data = data # The data stored in the nde 
@@ -65,6 +74,7 @@ llist_with_data = LinkedList(['a','b','c','d','e'])
 print(llist_with_data.__repr__())
 
 llist_with_data.add_first(Node('X'))
+llist_with_data.add_last(Node('Y'))
 
 for node in llist_with_data:
     print(node)
