@@ -61,6 +61,23 @@ class LinkedList:
                 node.next = new_node
                 return
 
+    def add_before(self, target_node_data, new_node):
+        if self.head is None:
+            raise Exception("List is empty")
+        
+        if self.head.data == target_node_data:
+            return self.add_first(new_node)
+
+        prev_node = self.head
+        for node in self:
+            if node.data == target_node_data:
+                prev_node.next = new_node
+                new_node.next = node
+                return
+            prev_node = node
+        
+        raise Exception("Node with data '%s' not found." % target_node_data)
+
 class Node:
     def __init__(self, data):
         self.data = data # The data stored in the nde 
@@ -85,6 +102,7 @@ print(llist_with_data.__repr__())
 llist_with_data.add_first(Node('X'))
 llist_with_data.add_last(Node('Y'))
 llist_with_data.add_after('c', Node('Z'))
+llist_with_data.add_before('d',Node('T'))
 
 for node in llist_with_data:
     print(node)
