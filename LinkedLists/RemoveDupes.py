@@ -17,6 +17,7 @@ class LinkedList:
             for elem in nodes:
                 node.next = Node(data=elem)
                 node = node.next
+    
 
     def __iter__(self): # Iterates over and prints each node in the list. Without this, the "for node in llist_with_data" line will not run.
         node = self.head
@@ -36,3 +37,19 @@ class Node:
 # Challenge: How would you solve this if an extra buffer was not allowed? 
 
 llist = LinkedList(['f','o','l','l','o','w','u','p',])
+temp = []
+
+# Using a buffer
+"""
+for node in LinkedList:
+    buffer.append(node.data)
+    if node.data is in buffer:
+        LinkedList.remove(node)
+"""
+for node in llist:
+    temp.append(node)
+    if node in temp:
+        llist.remove(node)
+
+
+# Not using a buffer 
