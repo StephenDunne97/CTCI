@@ -7,14 +7,11 @@ def isUnique(word):
             if x == y:
                 count = count + 1
                 if count > 1: 
+                    print(word + " is not unique.")
                     return False
-
+    print (word + " is unique.")
     return True
+    
+isUnique("step")
+isUnique("stepe")
 
-st = "steph"
-result = isUnique(st)
-
-if result == False:
-    print(st + " is not unique.")
-else:
-    print(st + " is unique.")
