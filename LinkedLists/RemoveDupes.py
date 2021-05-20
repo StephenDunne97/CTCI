@@ -69,4 +69,5 @@ for node in llist:
 
 for node in llist:  # The first O is removed because it is the first to be found when purging. The problem says nothing about this.
     print(node)
+
 # Not using a buffer
