@@ -1,7 +1,6 @@
 import java.util.Arrays;
 
 public class Permutation {
-
     static String sortString(String s1){
         char tempArray[] = s1.toCharArray();
         Arrays.sort(tempArray);
