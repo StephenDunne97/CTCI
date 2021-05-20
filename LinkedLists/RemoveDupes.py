@@ -57,7 +57,7 @@ class Node:
 
 
 """
-llist = LinkedList(['f', 'o', 'l', 'l', 'o', 'w', 'u', 'p', 'o'])
+llist = LinkedList(['f', 'o', 'l', 'l', 'o', 'w', 'u', 'p'])
 
 # Using a buffer
 temp = []
@@ -67,13 +67,13 @@ for node in llist:
     else:
         temp.append(node.data)
 
-# for node in llist:  # The first O is removed because it is the first to be found when purging. The problem says nothing about this.
-#    print(node)
+for node in llist:  # The first O is removed because it is the first to be found when purging. The problem says nothing about this.
+    print(node)
 
 """
 # Not using a buffer
 
-llist = LinkedList(['f', 'o', 'l', 'l', 'o', 'w', 'u'])
+llist = LinkedList(['f', 'o', 'l', 'l', 'o', 'w', 'u', 'p'])
 
 current = llist.head
 
