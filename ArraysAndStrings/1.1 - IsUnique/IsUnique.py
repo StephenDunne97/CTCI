@@ -9,6 +9,10 @@ def isUnique(word):
                     return False
     print (word + " is unique.")
     return True
-    
-isUnique("step")
-isUnique("stepe")
+
+def main():
+    isUnique("step")
+    isUnique("stepe")
+
+if __name__ == "__main__":
+    main()
