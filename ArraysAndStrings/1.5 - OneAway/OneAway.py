@@ -9,7 +9,6 @@ def replace(string1, string2):
                 diff = True
         i+=1
     return True
-    
 
 def insert(string1, string2):
     i = 0 # index for string 1
@@ -24,20 +23,25 @@ def insert(string1, string2):
             j+=1
     return True 
 
+def oneaway(s1, s2):
+    cond = True
+    if len(s1) == len(s2): # If s1 & s2 are the same length
+        cond = replace(s1,s2) 
+    elif len(s1)+1 == len(s2): # If s1 is 1 smaller than s2. 
+        cond = insert(s1,s2) # Smaller string is sent first. Ensures the longer string's index increments by 1 instead of the shorter string.
+    elif len(s1)-1 == len(s2): # If s1 is 1 bigger than s2.
+        cond = replace(s2,s1) # Smaller string is sent first.Ensures the longer string's index increments by 1 instead of the shorter string.
+    else: # If s1 & s2 are not the same length, or 1 bigger/smaller than one another
+        cond = False
 
-s1 = "apple"
-s2 = "appless"
-cond = True
-if len(s1) == len(s2): # If s1 & s2 are the same length
-    cond = replace(s1,s2) 
-elif len(s1)+1 == len(s2): # If s1 is 1 smaller than s2. 
-    cond = insert(s1,s2) # Smaller string is sent first. Ensures the longer string's index increments by 1 instead of the shorter string.
-elif len(s1)-1 == len(s2): # If s1 is 1 bigger than s2.
-    cond = replace(s2,s1) # Smaller string is sent first.Ensures the longer string's index increments by 1 instead of the shorter string.
-else: # If s1 & s2 are not the same length, or 1 bigger/smaller than one another
-    cond = False
+    if cond==True: 
+        print("True")
+    else:
+        print("False")
 
-if cond==True: 
-    print("True")
-else:
-    print("False")
+def main():
+    oneaway("apple","apples")
+    oneaway("apple","appless")
+
+if __name__ == "__main__":
+    main()
