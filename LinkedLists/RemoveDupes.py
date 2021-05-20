@@ -3,7 +3,7 @@ Author: Stephen Dunne
 Problem set: Linked Lists
 Problem title: Remove duplicate values
 Problem Description:  Write code to remove duplicates from an unsorted linked list.
-Challenge: How would you solve this if an extra buffer was not allowed? 
+Challenge: How would you solve this if an extra buffer was not allowed?
 """
 
 
@@ -25,7 +25,7 @@ class LinkedList:
             yield node  # Yield is similar to return
             node = node.next
 
-    def remove_node(self, target_node_data):
+    def remove_node(self, target_node_data, target_node_next):
         if self.head is None:
             raise Exception("List is empty")
 
@@ -35,7 +35,7 @@ class LinkedList:
 
         previous_node = self.head
         for node in self:
-            if node.data == target_node_data:
+            if node.data == target_node_data and node.next == target_node_next:
                 previous_node.next = node.next
                 return
             previous_node = node
@@ -56,7 +56,8 @@ class Node:
 # Challenge: How would you solve this if an extra buffer was not allowed?
 
 
-llist = LinkedList(['f', 'o', 'l', 'l', 'o', 'w', 'u', 'p', ])
+"""
+llist = LinkedList(['f', 'o', 'l', 'l', 'o', 'w', 'u', 'p', 'o'])
 
 # Using a buffer
 temp = []
@@ -65,9 +66,27 @@ for node in llist:
         llist.remove_node(node.data)
     else:
         temp.append(node.data)
-        print(temp)
 
-for node in llist:  # The first O is removed because it is the first to be found when purging. The problem says nothing about this.
-    print(node)
+# for node in llist:  # The first O is removed because it is the first to be found when purging. The problem says nothing about this.
+#    print(node)
 
+"""
 # Not using a buffer
+
+llist = LinkedList(['f', 'o', 'l', 'l', 'o', 'w', 'u'])
+
+current = llist.head
+
+while current.next:
+    runner = current.next
+    while runner.next:
+        if current.data == runner.data:
+            temp = runner.next
+            llist.remove_node(runner.data, runner.next)
+            runner = temp
+        else:
+            runner = runner.next
+    current = current.next
+
+for node in llist:
+    print(node)
