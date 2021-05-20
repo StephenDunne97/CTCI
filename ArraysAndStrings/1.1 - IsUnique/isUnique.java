@@ -1,4 +1,4 @@
-class isUnique{
+public class isUnique{
     static boolean isUnique(String word){ 
         for(int i=0; i<word.length(); i++){
             int count = 0;
