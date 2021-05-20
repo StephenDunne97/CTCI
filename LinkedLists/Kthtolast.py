@@ -40,14 +40,18 @@ class Node:
 llist = LinkedList(['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'])
 
 # If size is known
-size = 10
-k = 5
-jumps = size-k - 1  # -1 to account for 0 indexing
-count = 0
-current = llist.head
 
-while count != jumps:
-    current = current.next
-    count += 1
 
-print(current)
+def sizeKnown(size, k, llist):
+    jumps = size-k - 1  # -1 to account for 0 indexing
+    count = 0
+    current = llist.head
+
+    while count != jumps:
+        current = current.next
+        count += 1
+
+    print(current)
+
+
+sizeKnown(10, 5, llist)
