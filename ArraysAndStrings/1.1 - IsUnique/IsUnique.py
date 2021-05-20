@@ -1,4 +1,3 @@
-
 def isUnique(word):
     unique = True
     for x in word:
@@ -14,4 +13,3 @@ def isUnique(word):
     
 isUnique("step")
 isUnique("stepe")
-
