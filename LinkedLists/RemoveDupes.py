@@ -57,19 +57,16 @@ class Node:
 
 
 llist = LinkedList(['f', 'o', 'l', 'l', 'o', 'w', 'u', 'p', ])
-temp = []
 
 # Using a buffer
-"""
-for node in LinkedList:
-    buffer.append(node.data)
-    if node.data is in buffer:
-        LinkedList.remove(node)
-"""
+temp = []
 for node in llist:
-    temp.append(node)
-    if node in temp:
-        llist.remove(node)
+    if node.data in temp:
+        llist.remove_node(node.data)
+    else:
+        temp.append(node.data)
+        print(temp)
 
-
+for node in llist:  # The first O is removed because it is the first to be found when purging. The problem says nothing about this.
+    print(node)
 # Not using a buffer
