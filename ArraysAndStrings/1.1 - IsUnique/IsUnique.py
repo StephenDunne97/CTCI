@@ -1,5 +1,4 @@
 def isUnique(word):
-    unique = True
     for x in word:
         count = 0
         for y in word:
