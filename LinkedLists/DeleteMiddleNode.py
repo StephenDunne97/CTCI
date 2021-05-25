@@ -18,12 +18,14 @@ class LinkedList:
         if self.head is None:
             raise Exception("List is empty")
 
-        if self.head == target_node_data:  # If head is the node to be removed
-            self.head = self.head.next  # The new head is the next node after the head
-            return
+        if self.head.data == target_node_data:  # If head is the node to be removed
+            print("Hello")
+            raise Exception("You cannot remove the head.")
 
         for node in self:
-            if node.data == target_node_data:
+            if node.data == target_node_data and node.next == None:
+                raise Exception("You cannot remove the tail.")
+            elif node.data == target_node_data:
                 node.data = node.next.data
                 node.next = node.next.next
                 return
@@ -40,7 +42,7 @@ class Node:
 
 def main():
     llist = LinkedList(['a', 'b', 'c', 'd', 'e'])
-    llist.remove_node("c")
+    llist.remove_node('a')
     for node in llist:
         print(node) 
 
