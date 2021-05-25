@@ -19,7 +19,6 @@ class LinkedList:
             raise Exception("List is empty")
 
         if self.head.data == target_node_data:  # If head is the node to be removed
-            print("Hello")
             raise Exception("You cannot remove the head.")
 
         for node in self:
