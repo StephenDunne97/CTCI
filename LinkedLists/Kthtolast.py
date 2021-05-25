@@ -36,22 +36,23 @@ class Node:
     def __repr__(self):
         return self.data
 
-
-llist = LinkedList(['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'])
-
 # If size is known
-
-
 def sizeKnown(size, k, llist):
-    jumps = size-k - 1  # -1 to account for 0 indexing
-    count = 0
-    current = llist.head
+    jumps_required = size-k - 1  # -1 to account for 0 indexing
+    jumps_performed = 0
+    current_node = llist.head
 
-    while count != jumps:
-        current = current.next
-        count += 1
+    while jumps_performed != jumps_required:
+        current_node = current_node.next
+        jumps_performed += 1
 
-    print(current)
+    print(current_node)
 
+def main():
+    llist = LinkedList(['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'])
+    llist2 = LinkedList(['1', '2', '3', '4', '5', '6', '7', '8', '9', '10','11', '12', '13', '14', '15', '16', '17'])
+    sizeKnown(10, 5, llist)
+    sizeKnown(17,3,llist2)
 
-sizeKnown(10, 5, llist)
+if __name__ ==  "__main__":
+    main()
