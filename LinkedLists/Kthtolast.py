@@ -8,8 +8,7 @@ class LinkedList:
                 node.next = Node(data=elem)
                 node = node.next
 
-    # Iterates over and prints each node in the list. Without this, "for node in llist" will not run.
-    def __iter__(self):
+    def __iter__(self): # Iterates over and prints each node in the list. Without this, "for node in llist" will not run.
         node = self.head
         while node is not None:
             yield node  # Yield is similar to return
@@ -20,12 +19,10 @@ class Node:
         self.data = data  # The data stored in the nde
         self.next = None  # The next node in the list
 
-    # Special method used to represent a class's objects as a string.
-    def __repr__(self):
+    def __repr__(self):  # Special method used to represent a class's objects as a string.
         return self.data
 
-# If LinkedList size is known
-def sizeKnown(size, k, llist):
+def sizeKnown(size, k, llist): # If LinkedList size is known
     jumps_required = size-k - 1  # -1 to account for 0 indexing
     jumps_performed = 0
     current_node = llist.head
