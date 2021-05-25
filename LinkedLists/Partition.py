@@ -33,10 +33,10 @@ class Node:
         return self.data
 
 def main():
-    original = LinkedList([3,5,8,5,10,2,1])
+    original = LinkedList([3,5,8,5,10,2,1]) 
     x = 5
-    lesser = LinkedList()
-    greater = LinkedList()
+    lesser = LinkedList() # Contains nodes less than x
+    greater = LinkedList() # Contains nodes greater than or equal to x
 
     for node in original:
         if node.data < x:
