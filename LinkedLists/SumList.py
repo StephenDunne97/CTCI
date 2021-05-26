@@ -63,7 +63,7 @@ def extractValues(llist):
 # Formats a list into an integer
 
 
-def processNums(numberlist):
+def formatNum(numberlist):
     numberlist.reverse()
     result = int("".join(map(str, numberlist)))
     return result
@@ -80,8 +80,8 @@ def genFinalList(num1, num2):
 
 def sumList(llist):
     nums = extractValues(llist)
-    num1 = processNums(nums[0])
-    num2 = processNums(nums[1])
+    num1 = formatNum(nums[0])
+    num2 = formatNum(nums[1])
     final = genFinalList(num1, num2)
     return final
 
