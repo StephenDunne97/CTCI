@@ -6,7 +6,6 @@ Problem Description:  Write code to remove duplicates from an unsorted linked li
 Challenge: How would you solve this if an extra buffer was not allowed?
 """
 
-# Implementing your own LinkedList from scratch
 class LinkedList:
     def __init__(self, nodes=None):
         self.head = None  # Marks the start of the LinkedList
