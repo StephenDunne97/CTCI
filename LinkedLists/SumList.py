@@ -8,6 +8,17 @@ class LinkedList:
                 node.next = Node(data=elem)
                 node = node.next
 
+    def __repr__(self):  # Used to represent the exact string representation of the object
+        node = self.head  # First node in the LinkedList
+        nodes = []
+        # None indicates that the last node in the list has been reached.
+        while node is not None:
+            # Take the data from the current node and append to nodes list
+            nodes.append(str(node.data))
+            node = node.next
+        nodes.append('None')
+        return " -> ".join(nodes)
+
     # Iterates over and prints each node in the list. Without this, the "for node in llist_with_data" line will not run.
     def __iter__(self):
         node = self.head
@@ -59,8 +70,11 @@ def main():
     nums = extractValues(llist)
     num1 = processNums(nums[0])
     num2 = processNums(nums[1])
-    print(num1)
-    print(num2)
+    combined = num1 + num2
+    final = list(map(int, str(combined)))
+    final.reverse()
+    llist_result = LinkedList(final)
+    print(llist_result.__repr__())
 
 
 if __name__ == "__main__":
