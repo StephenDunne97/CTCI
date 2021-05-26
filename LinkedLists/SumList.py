@@ -78,7 +78,6 @@ def main():
     num1 = processNums(nums[0])
     num2 = processNums(nums[1])
     final = genFinalList(num1, num2)
-
     print(final.__repr__())
 
 
