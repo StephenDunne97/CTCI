@@ -52,41 +52,36 @@ class Node:
     def __repr__(self):
         return self.data
 
-# Problem: Write code to remove duplicates from an unsorted linked list.
-# Challenge: How would you solve this if an extra buffer was not allowed?
-
-
-"""
-llist = LinkedList(['f', 'o', 'l', 'l', 'o', 'w', 'u', 'p'])
-
-# Using a buffer
-temp = []
-for node in llist:
-    if node.data in temp:
-        llist.remove_node(node.data)
-    else:
-        temp.append(node.data)
-
-for node in llist:  # The first O is removed because it is the first to be found when purging. The problem says nothing about this.
-    print(node)
-
-"""
-# Not using a buffer
-
-llist = LinkedList(['f', 'o', 'l', 'l', 'o', 'w', 'u', 'p'])
-
-current = llist.head
-
-while current.next:
-    runner = current.next
-    while runner.next:
-        if current.data == runner.data:
-            temp = runner.next
-            llist.remove_node(runner.data, runner.next)
-            runner = temp
+# Using buffer
+def remove_dupes_buffer(llist):
+    temp = []
+    for node in llist:
+        if node.data in temp:
+            llist.remove_node(node.data)
         else:
-            runner = runner.next
-    current = current.next
+            temp.append(node.data)
+    return llist
 
-for node in llist:
-    print(node)
+# No buffer
+def remove_dupes(llist):
+    current = llist.head
+    while current.next:
+        runner = current.next
+        while runner.next:
+            if current.data == runner.data:
+                temp = runner.next
+                llist.remove_node(runner.data, runner.next)
+                runner = temp
+            else:
+                runner = runner.next
+        current = current.next
+    return llist
+
+def main():
+    llist = LinkedList(['f', 'o', 'l', 'l', 'o', 'w', 'u', 'p'])
+    llist = remove_dupes(llist)
+    for node in llist:
+        print(node)
+
+if __name__ == "__main__":
+    main()
