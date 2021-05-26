@@ -6,7 +6,6 @@ Problem Description:  Write code to remove duplicates from an unsorted linked li
 Challenge: How would you solve this if an extra buffer was not allowed?
 """
 
-
 # Implementing your own LinkedList from scratch
 class LinkedList:
     def __init__(self, nodes=None):
@@ -42,7 +41,6 @@ class LinkedList:
 
         raise Exception("Node with data '%s' not found." % target_node_data)
 
-
 class Node:
     def __init__(self, data):
         self.data = data  # The data stored in the nde
@@ -69,16 +67,22 @@ def remove_dupes(llist):
         runner = current.next
         while runner.next:
             if current.data == runner.data:
+                prev = runner
                 temp = runner.next
                 llist.remove_node(runner.data, runner.next)
                 runner = temp
             else:
+                prev = runner
                 runner = runner.next
         current = current.next
+
+    # Fixes problem where if the llist has duplicates as the final 2 nodes, they wouldn't be deleted
+    if runner.next == None and prev.data == current.data:
+        llist.remove_node(runner.data, runner.next)
     return llist
 
 def main():
-    llist = LinkedList(['f', 'o', 'l', 'l', 'o', 'w', 'u', 'p'])
+    llist = LinkedList(['f', 'o', 'l', 'l', 'o', 'w', 'u', 'p','p','p'])
     llist = remove_dupes(llist)
     for node in llist:
         print(node)
