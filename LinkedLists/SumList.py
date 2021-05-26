@@ -36,6 +36,8 @@ class Node:
     def __repr__(self):
         return self.data
 
+# Extracts values from original LinkedList
+
 
 def extractValues(llist):
     buff = []
@@ -58,11 +60,15 @@ def extractValues(llist):
     result = [num1, num2]
     return result
 
+# Formats a list into an integer
+
 
 def processNums(numberlist):
     numberlist.reverse()
     result = int("".join(map(str, numberlist)))
     return result
+
+# Adds 2 ints and returns the reversed result as a Linkedlist
 
 
 def genFinalList(num1, num2):
@@ -72,13 +78,19 @@ def genFinalList(num1, num2):
     return LinkedList(final)
 
 
-def main():
-    llist = LinkedList([7, 1, 6, '+', 5, 9, 2])
+def sumList(llist):
     nums = extractValues(llist)
     num1 = processNums(nums[0])
     num2 = processNums(nums[1])
     final = genFinalList(num1, num2)
-    print(final.__repr__())
+    return final
+
+
+def main():
+    llist = LinkedList([5, 8, 6, 7, 1, 6, '+', 5, 9, 2, 2, 8, 9, 4, 7])
+    summedList = sumList(llist)
+
+    print(summedList.__repr__())
 
 
 if __name__ == "__main__":
