@@ -65,16 +65,21 @@ def processNums(numberlist):
     return result
 
 
+def genFinalList(num1, num2):
+    combined = num1 + num2
+    final = list(map(int, str(combined)))
+    final.reverse()
+    return LinkedList(final)
+
+
 def main():
     llist = LinkedList([7, 1, 6, '+', 5, 9, 2])
     nums = extractValues(llist)
     num1 = processNums(nums[0])
     num2 = processNums(nums[1])
-    combined = num1 + num2
-    final = list(map(int, str(combined)))
-    final.reverse()
-    llist_result = LinkedList(final)
-    print(llist_result.__repr__())
+    final = genFinalList(num1, num2)
+
+    print(final.__repr__())
 
 
 if __name__ == "__main__":
